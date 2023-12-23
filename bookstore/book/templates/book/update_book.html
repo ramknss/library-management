@@ -1,0 +1,40 @@
+{% extends 'book/main.html' %}
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<title>Student update</title>
+</head>
+<body>
+	<div class="container mt-4">
+		<div class="card col-md-4 mx-auto shadow-lg">
+			<div class="card-body">
+				<h4>Student update</h4>
+				<form method="post">
+					{% csrf_token %}
+					<input type="text" name="a" placeholder="Enter Book Name" class="form-control my-2" value="{{t.title}}" disabled>
+					<input type="text" name="y" placeholder="Enter Author name" class="form-control my-2" value="{{t.Author}}" disabled>
+					<input type="text" name="b" placeholder="Enter Price" class="form-control my-2" value="{{t.Price}}">
+					<input type="text" name="k" placeholder="Enter Edition" class="form-control my-2" value="{{t.Edition}}">
+					<div class="row">
+						<div class="col">
+							<a href="{% url 'home' %}" class="form-control btn btn-outline-info">Back</a>
+						</div>
+						<div class="col">
+							<input type="submit" value="Make changes" class="form-control btn btn-outline-success">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+{% endblock %}

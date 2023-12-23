@@ -1,0 +1,13 @@
+{% extends 'book/main.html' %}
+{% load static%}
+{% block content %}
+<div class="container jumbotron">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <p><input type="text" name="username" placeholder="Username..."></p>
+        <p><input type="password" name="password" placeholder="Password..." ></p>
+        <input class="btn btn-success" type="submit" value="Login">
+        <p><b>Do not have an account-</b><a class="btn btn-primary text-white btn-outline-primary"href="{% url 'register' %}">Register</a></p>
+    </form>
+</div>
+{% endblock %}
